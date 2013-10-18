@@ -1,16 +1,16 @@
 #include "cmdline.h"
 
 
-static int      __cdecl exist		(char * argument);
-static char *   __cdecl getvalue	(char * argument);
-static void     __cdecl init		(int argc, char * argv[]);
-static void     __cdecl cleanup		(void);
+static int      __cdecl exist       (char * argument);
+static char *   __cdecl getvalue    (char * argument);
+static void     __cdecl init        (int argc, char * argv[]);
+static void     __cdecl cleanup     (void);
 
 struct __cmdline{
-	int		(__cdecl * exist)		(char * argument);
-	char *	(__cdecl * getvalue)	(char * argument);
-	void	(__cdecl * init)		(int argc, char * argv[]);
-	void	(__cdecl * cleanup)		(void);
+	int		(__cdecl * exist)       (char * argument);
+	char *	(__cdecl * getvalue)    (char * argument);
+	void	(__cdecl * init)        (int argc, char * argv[]);
+	void	(__cdecl * cleanup)     (void);
 	int	argc;
 	char ** argv;
 } cmdline = {
