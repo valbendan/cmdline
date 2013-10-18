@@ -67,3 +67,4 @@ void init(int argc, char * argv[])
 	cmdline.argc = argc;
 	cmdline.argv = argv;
 }
+
