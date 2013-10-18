@@ -60,8 +60,6 @@ static char * __cdecl getvalue(char * argument)
 	return (char *)NULL;
 }
 
-
-
 void init(int argc, char * argv[])
 {
 	cmdline.argc = argc;
