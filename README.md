@@ -1,4 +1,6 @@
 cmdline
 =======
 
-command line parser for C
+Simply command line parser for C
+
+Need more working!
