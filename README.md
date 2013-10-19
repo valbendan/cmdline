@@ -3,6 +3,6 @@ cmdline
 
 Simply command line parser for C
 
-Need more working!
+[Short usage] (https://github.com/valbendan/cmdline/wiki/Usage)
 
-For short [usage] (https://github.com/valbendan/cmdline/wiki/Usage)
+Proposal any issues is appreciate!
