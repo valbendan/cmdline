@@ -3,10 +3,10 @@
 #define	__cdecl __attribute__((__cdecl))
 #endif
 
-static int __cdecl exist(char * argument);
-static char * __cdecl getvalue(char * argument);
-static void __cdecl init(int argc, char * argv[]);
-static void __cdecl cleanup(void);
+static int 		__cdecl exist(char * argument);
+static char * 	__cdecl getvalue(char * argument);
+static void 	__cdecl init(int argc, char * argv[]);
+static void 	__cdecl cleanup(void);
 
 struct __cmdline cmdline = {
 	exist,
