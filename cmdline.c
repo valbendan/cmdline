@@ -1,17 +1,16 @@
 #include "cmdline.h"
 
-
-static int      __cdecl exist       (char * argument);
-static char *   __cdecl getvalue    (char * argument);
-static void     __cdecl init        (int argc, char * argv[]);
-static void     __cdecl cleanup     (void);
+static int  exist(char * argument);
+static char *  getvalue(char * argument);
+static void  init(int argc, char * argv[]);
+static void  cleanup(void);
 
 struct __cmdline{
-	int     (__cdecl * exist)       (char * argument);
-	char *  (__cdecl * getvalue)    (char * argument);
-	void    (__cdecl * init)        (int argc, char * argv[]);
-	void    (__cdecl * cleanup)     (void);
-	int	argc;
+	int		( * exist)			(char * argument);
+	char *	( * getvalue)	(char * argument);
+	void		( * init)			(int argc, char * argv[]);
+	void		( * cleanup)	(void);
+	int		argc;
 	char ** argv;
 } cmdline = {
 	exist,
@@ -28,7 +27,7 @@ void cleanup(void)
 	cmdline.argv = (char **) NULL;
 }
 
-static int __cdecl exist(char * argument)
+static int  exist(char * argument)
 {
 	int i = 0;
 	int length = strlen(argument);
@@ -40,7 +39,7 @@ static int __cdecl exist(char * argument)
 	return 0;
 }
 
-static char * __cdecl getvalue(char * argument)
+static char *  getvalue(char * argument)
 {
 	int i = 0;
 	int length =strlen(argument);
@@ -60,9 +59,27 @@ static char * __cdecl getvalue(char * argument)
 	return (char *)NULL;
 }
 
+
+
 void init(int argc, char * argv[])
 {
 	cmdline.argc = argc;
 	cmdline.argv = argv;
 }
 
+int main(int argc, char * argv[])
+{
+	cmdline.init(argc, argv);
+	if(cmdline.exist("-d")){
+		printf("exist -d argument!\n");
+	} else {
+		printf("not exist -d argument!\n");
+	}
+	char * test = (char *)NULL;
+	test = cmdline.getvalue("-f");
+	if(test){
+		printf("%s\n", test);
+	}
+	cmdline.cleanup();
+	return 0;
+}
